@@ -1,0 +1,239 @@
+/* ===========================================================
+   VARIABLES DE IDENTIDAD — PERSONALIZA estos valores con los
+   colores de tu empresa ficticia. El resto del archivo no
+   necesita modificarse para que el sitio funcione.
+   =========================================================== */
+:root {
+  --color-primario: #2E75B6;        /* PERSONALIZA */
+  --color-secundario: #1A1A1A;      /* PERSONALIZA */
+  --color-fondo: #F5F7FA;           /* PERSONALIZA */
+  --color-fondo-oscuro: #1A1A1A;
+  --color-texto-oscuro: #F5F7FA;
+  --color-tarjeta: #FFFFFF;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-fondo);
+  color: var(--color-secundario);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+body.modo-oscuro {
+  background-color: var(--color-fondo-oscuro);
+  color: var(--color-texto-oscuro);
+}
+
+body.modo-oscuro .tarjeta,
+body.modo-oscuro .acordeon-contenido,
+body.modo-oscuro .formulario {
+  background-color: #2A2A2A;
+  color: var(--color-texto-oscuro);
+}
+
+/* ---------- ENCABEZADO ---------- */
+.encabezado {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 40px 20px;
+  text-align: center;
+  background-color: var(--color-primario);
+  color: white;
+}
+
+.encabezado h1 { margin-top: 8px; }
+
+.logo { width: 70px; height: 70px; }
+
+.eslogan { font-style: italic; opacity: 0.9; }
+
+.boton-modo {
+  margin-top: 10px;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  background-color: white;
+  color: var(--color-primario);
+  font-weight: bold;
+  cursor: pointer;
+}
+.boton-modo:hover { opacity: 0.85; }
+
+/* ---------- MENÚ ---------- */
+.menu {
+  display: flex;
+  justify-content: center;
+  padding: 14px;
+  background-color: var(--color-secundario);
+}
+.menu a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  margin: 0 12px;
+}
+.menu a:hover { text-decoration: underline; }
+
+/* ---------- SECCIONES GENERALES ---------- */
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.seccion {
+  margin-bottom: 48px;
+}
+
+.seccion h2 {
+  color: var(--color-primario);
+  margin-bottom: 16px;
+  border-bottom: 3px solid var(--color-primario);
+  display: inline-block;
+  padding-bottom: 4px;
+}
+
+/* ---------- ACORDEÓN (Misión / Visión / Valores) ---------- */
+.acordeon-titulo {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 12px 16px;
+  margin-top: 8px;
+  border: none;
+  border-radius: 6px;
+  background-color: var(--color-primario);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+.acordeon-titulo:hover { opacity: 0.9; }
+
+.acordeon-contenido {
+  display: none;
+  padding: 14px 16px;
+  background-color: var(--color-tarjeta);
+  border: 1px solid #E0E0E0;
+  border-top: none;
+  border-radius: 0 0 6px 6px;
+}
+
+.acordeon-contenido.activo { display: block; }
+
+/* ---------- BUSCADOR ---------- */
+.buscador {
+  width: 100%;
+  max-width: 400px;
+  padding: 10px 14px;
+  margin-bottom: 20px;
+  border: 1px solid #C9C9C9;
+  border-radius: 6px;
+  font-size: 1em;
+}
+
+/* ---------- EQUIPO ---------- */
+.grid-equipo {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.tarjeta {
+  background-color: var(--color-tarjeta);
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.tarjeta img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.tarjeta .rol {
+  font-style: italic;
+  color: var(--color-primario);
+  margin-bottom: 8px;
+}
+
+.habilidades {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin: 10px 0;
+}
+.habilidades li {
+  background-color: var(--color-primario);
+  color: white;
+  padding: 4px 10px;
+  border-radius: 14px;
+  font-size: 0.85em;
+}
+
+.tarjeta a {
+  color: var(--color-primario);
+  font-weight: bold;
+  text-decoration: none;
+}
+.tarjeta a:hover { text-decoration: underline; }
+
+/* Clase que usará el buscador de habilidades para esconder tarjetas
+   que no coinciden con la búsqueda. */
+.tarjeta.oculta { display: none; }
+
+/* ---------- FORMULARIO DE CONTACTO ---------- */
+.formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 480px;
+  background-color: var(--color-tarjeta);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.formulario label { font-weight: bold; }
+
+.formulario input,
+.formulario textarea {
+  padding: 8px 10px;
+  border: 1px solid #C9C9C9;
+  border-radius: 6px;
+  font-family: inherit;
+}
+
+.formulario button {
+  align-self: flex-start;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 6px;
+  background-color: var(--color-primario);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+.formulario button:hover { opacity: 0.9; }
+
+.mensaje-estado { font-weight: bold; }
+.mensaje-estado.exito { color: #2E7D32; }
+.mensaje-estado.error { color: #C0392B; }
+
+/* ---------- FOOTER ---------- */
+footer {
+  text-align: center;
+  padding: 20px;
+  font-size: 0.9em;
+  background-color: var(--color-secundario);
+  color: white;
+}
